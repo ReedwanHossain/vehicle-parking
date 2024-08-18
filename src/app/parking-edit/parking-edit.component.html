@@ -1,0 +1,22 @@
+<div class="p-6 bg-gray-50 min-h-screen">
+    <h2 class="text-2xl font-bold mb-4">Edit Parking Status</h2>
+  
+    <div class="bg-white p-6 rounded shadow-md">
+      <form [formGroup]="parkingForm" (ngSubmit)="onSubmit()" class="space-y-4">
+        <div class="mb-4">
+          <label for="licenseNum" class="block text-gray-700 font-medium mb-1">License Number:</label>
+          <input id="licenseNum" formControlName="licenseNum" type="text" class="w-full border-gray-300 rounded p-2" [disabled]="true" />
+        </div>
+  
+        <div class="mb-4">
+          <label for="status" class="block text-gray-700 font-medium mb-1">Status:</label>
+          <select id="status" formControlName="status" class="w-full border-gray-300 rounded p-2">
+            <option *ngFor="let status of statuses" [value]="status">{{ (status) }}</option>
+          </select>
+        </div>
+  
+        <button type="submit" [disabled]="!parkingForm.valid" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Update Status</button>
+      </form>
+    </div>
+  </div>
+  

@@ -1,0 +1,57 @@
+<div class="p-6 bg-gray-50 min-h-screen">
+    <h2 class="text-2xl font-bold mb-4">Parking Form</h2>
+  
+    <form [formGroup]="parkingForm" (ngSubmit)="onSubmit()" class="bg-white p-6 rounded shadow-md">
+      <div class="mb-4">
+        <label for="licenseNum" class="block text-gray-700 font-medium mb-1">License Number:</label>
+        <input id="licenseNum" formControlName="licenseNum" type="text" class="w-full border-gray-300 rounded p-2" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="vehicleType" class="block text-gray-700 font-medium mb-1">Vehicle Type:</label>
+        <select id="vehicleType" formControlName="vehicleType" class="w-full border-gray-300 rounded p-2">
+          <option *ngFor="let type of VehicleType | keyvalue" [value]="type.value">{{ type.key }}</option>
+        </select>
+      </div>
+  
+      <div class="mb-4">
+        <label for="ownerName" class="block text-gray-700 font-medium mb-1">Owner Name:</label>
+        <input id="ownerName" formControlName="ownerName" type="text" class="w-full border-gray-300 rounded p-2" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="ownerPhone" class="block text-gray-700 font-medium mb-1">Owner Phone Number:</label>
+        <input id="ownerPhone" formControlName="ownerPhone" type="text" class="w-full border-gray-300 rounded p-2" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="status" class="block text-gray-700 font-medium mb-1">Status:</label>
+        <select id="status" formControlName="status" class="w-full border-gray-300 rounded p-2">
+          <option *ngFor="let status of Status | keyvalue" [value]="status.value">{{ status.key }}</option>
+        </select>
+      </div>
+  
+      <div class="mb-4">
+        <label for="address" class="block text-gray-700 font-medium mb-1">Address:</label>
+        <input id="address" formControlName="address" type="text" class="w-full border-gray-300 rounded p-2" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="entryTime" class="block text-gray-700 font-medium mb-1">Entry Time:</label>
+        <input id="entryTime" formControlName="entryTime" type="datetime-local" class="w-full border-gray-300 rounded p-2" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="exitTime" class="block text-gray-700 font-medium mb-1">Exit Time:</label>
+        <input id="exitTime" formControlName="exitTime" type="datetime-local" class="w-full border-gray-300 rounded p-2" />
+      </div>
+  
+      <div class="mb-4">
+        <label for="charge" class="block text-gray-700 font-medium mb-1">Parking Charge:</label>
+        <input id="charge" formControlName="charge" type="text" class="w-full border-gray-300 rounded p-2" />
+      </div>
+  
+      <button type="submit" [disabled]="!parkingForm.valid" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Submit</button>
+    </form>
+  </div>
+  
