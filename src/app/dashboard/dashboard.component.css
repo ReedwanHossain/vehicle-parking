@@ -1,0 +1,5 @@
+.echart {
+    width: 100%;
+    max-width: 600px; /* Adjust as necessary */
+    margin: 0 auto; /* Center charts horizontally */
+  }
